@@ -1,0 +1,151 @@
+﻿<Window x:Class="WpfSystemManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfSystemManagement"
+        Title="MainWindow" Height="598.64" Width="953.16">
+    <Window.Resources>
+        <!--DefaultStyle Style-->
+        <SolidColorBrush x:Key="DefaultStyle.BackgroundLv0" Color="AntiqueWhite"></SolidColorBrush>
+        <SolidColorBrush x:Key="DefaultStyle.BackgroundLv1" Color="OrangeRed"></SolidColorBrush>
+        <SolidColorBrush x:Key="DefaultStyle.BackgroundLv2" Color="Beige"></SolidColorBrush>
+        
+        <!--Expander Button Style-->
+        <LinearGradientBrush x:Key="ExpanderButtonStyle.IsMouseOver" StartPoint="0 0" EndPoint="0 1">
+            <GradientStop Color="OrangeRed" Offset="0"></GradientStop>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+            <GradientStop Color="AntiqueWhite" Offset="0.4"></GradientStop>
+            <GradientStop Color="AntiqueWhite" Offset="0.6"></GradientStop>
+            <GradientStop Color="OrangeRed" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="ExpanderButtonStyle.IsPressed" StartPoint="0 0" EndPoint="0 1">
+            <GradientStop Color="OrangeRed" Offset="0"></GradientStop>
+            <GradientStop Color="AntiqueWhite" Offset="0.2"></GradientStop>
+            <GradientStop Color="AntiqueWhite" Offset="0.8"></GradientStop>
+            <GradientStop Color="OrangeRed" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+        <Style x:Key="ExpanderButtonStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Margin="{TemplateBinding Margin}">
+                            <TextBlock Background="Transparent" Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource ExpanderButtonStyle.IsMouseOver}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource ExpanderButtonStyle.IsPressed}"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                    
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+        <!--IsEnable-->
+        <LinearGradientBrush x:Key="TabHeaderTopSytle.IsEnabled" StartPoint="0 0" EndPoint="0 1">
+            <GradientStop Color="DarkGray" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="TabHeaderLeftSytle.IsEnabled" StartPoint="0 0.35" EndPoint="1 0.6">
+            <GradientStop Color="Transparent" Offset="0.5"></GradientStop>
+            <GradientStop Color="DarkGray" Offset="0.54"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="TabHeaderRightSytle.IsEnabled" StartPoint="1 0.35" EndPoint="0 0.6">
+            <GradientStop Color="Transparent" Offset="0.5"></GradientStop>
+            <GradientStop Color="DarkGray" Offset="0.54"></GradientStop>
+        </LinearGradientBrush>
+        <!--IsSelected-->
+        <LinearGradientBrush x:Key="TabHeaderTopSytle.IsSelected" StartPoint="0 0" EndPoint="0 1">         
+            <GradientStop Color="OrangeRed" Offset="0.03"></GradientStop>
+            <GradientStop Color="White" Offset="0.1"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="TabHeaderLeftSytle.IsSelected" StartPoint="0 0.35" EndPoint="1 0.6">
+            <GradientStop Color="Transparent" Offset="0.5"></GradientStop>
+            <GradientStop Color="Gray" Offset="0.53"></GradientStop>
+            <GradientStop Color="White" Offset="0.6"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="TabHeaderRightSytle.IsSelected" StartPoint="1 0.35" EndPoint="0 0.6">
+            <GradientStop Color="Transparent" Offset="0.5"></GradientStop>
+            <GradientStop Color="Gray" Offset="0.53"></GradientStop>
+            <GradientStop Color="White" Offset="0.6"></GradientStop>
+        </LinearGradientBrush>
+        <!--TanItemStyle-->
+        <Style x:Key="TabItemStyle"  TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="border"  BorderBrush="Black" BorderThickness="0" Margin="{TemplateBinding Margin}" >
+                            <Grid>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="15"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="15"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Canvas x:Name="TabHeaderLeft" Grid.Column="0" Width="Auto" Height="Auto" Background="{StaticResource TabHeaderLeftSytle.IsEnabled}" SnapsToDevicePixels="True" UseLayoutRounding="True"></Canvas>
+                                
+                                <StackPanel Orientation="Horizontal" x:Name="TabHeaderTop" Grid.Column="1" Width="Auto" Height="Auto" Background="{StaticResource TabHeaderTopSytle.IsEnabled}" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                                    <TextBlock Margin="0 0 5 0" VerticalAlignment="Center" Text="{TemplateBinding Header}" FontFamily="Comic Sans MS" FontSize="22"></TextBlock>
+                                    <Button Tag="{TemplateBinding Header}" Width="10" Height="10" Click="Button_Click" ></Button>
+                                </StackPanel>
+                                <Canvas x:Name="TabHeaderRight" Grid.Column="2" Width="Auto" Height="Auto" Background="{StaticResource TabHeaderRightSytle.IsEnabled}" SnapsToDevicePixels="True" UseLayoutRounding="True"></Canvas>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="true">
+                                <Setter TargetName="TabHeaderLeft" Property="Background" Value="{StaticResource TabHeaderLeftSytle.IsEnabled}"></Setter>
+                                <Setter TargetName="TabHeaderTop" Property="Background" Value="{StaticResource TabHeaderTopSytle.IsEnabled}"></Setter>
+                                <Setter TargetName="TabHeaderRight" Property="Background" Value="{StaticResource TabHeaderRightSytle.IsEnabled}"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="TabHeaderLeft" Property="Background" Value="{StaticResource TabHeaderLeftSytle.IsSelected}"></Setter>
+                                <Setter TargetName="TabHeaderTop" Property="Background" Value="{StaticResource TabHeaderTopSytle.IsSelected}"></Setter>
+                                <Setter TargetName="TabHeaderRight" Property="Background" Value="{StaticResource TabHeaderRightSytle.IsSelected}"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--End TabItem Header Sytle-->
+        
+    </Window.Resources>
+    <Grid Background="AntiqueWhite">
+        <DockPanel >
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="文件">
+                    <MenuItem Header="新建"/>
+                    <MenuItem Header="打开"/>
+                    <MenuItem Header="保存"/>
+                    <MenuItem Header="退出"/>
+                </MenuItem>
+                <MenuItem Header="编辑"/>
+            </Menu>
+            <Border  DockPanel.Dock="Left" Margin="5" BorderBrush="Blue" BorderThickness="0" Background="{StaticResource DefaultStyle.BackgroundLv1}" Padding="2">
+                <StackPanel Orientation="Vertical" Width="150" Background="{StaticResource DefaultStyle.BackgroundLv2}">
+                    <Expander Header="用户管理" >
+                        <StackPanel>
+                            <Button Content="注册信息" Style="{StaticResource ExpanderButtonStyle}"/>
+                            <Button Content="登录信息" Style="{StaticResource ExpanderButtonStyle}"/>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="设备管理" >
+                        <StackPanel>
+                            <Button Content="终端设备" Style="{StaticResource ExpanderButtonStyle}"></Button>
+                            <Button Content="移动设备" Style="{StaticResource ExpanderButtonStyle}"></Button>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </Border>
+            <TabControl DockPanel.Dock="Right" Margin="0 5 5 5" BorderThickness="0" Background="Transparent">
+                <ItemsControl></ItemsControl>
+                <TabItem Style="{StaticResource TabItemStyle}" Header="DefaultTest" IsSelected="True" >
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+
+</Window>
