@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSystemManagement", "Syst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO", "SystemManagement\ADO\ADO.csproj", "{2F4F6F10-D3B9-420E-9E0E-B0DE05D198B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebSrever\WebApplication1\WebApplication1.csproj", "{35C79E64-2947-4864-B238-076D763C0F3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebSrever\WebApplication1\WebApplication1.csproj", "{35C79E64-2947-4864-B238-076D763C0F3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebSrever\WebApplication2\WebApplication2.csproj", "{BB632C42-72B1-4A4D-9EB0-77ECED0D4127}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "WebSrever\WebApplication2\WebApplication2.csproj", "{BB632C42-72B1-4A4D-9EB0-77ECED0D4127}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmApp1", "SystemManagement\MvvmApp1\MvvmApp1.csproj", "{879C7B42-D1D8-433A-B5AB-BFC85A0D0DE5}"
 EndProject

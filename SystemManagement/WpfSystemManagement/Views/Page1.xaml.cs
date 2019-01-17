@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfSystemManagement
+namespace WpfSystemManagement.Views
 {
     /// <summary>
-    /// UserInfoPage.xaml 的交互逻辑
+    /// Page1.xaml 的交互逻辑
     /// </summary>
-    public partial class UserInfoPage : Page
+    public partial class Page1 : Page
     {
-        public UserInfoPage()
+        public Page1()
         {
             InitializeComponent();
         }
